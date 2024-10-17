@@ -1,0 +1,128 @@
+import java.util.Scanner;
+class Employee11{
+String name,mail,address;
+long mobileno;
+int id;
+double bp;
+
+void info(){
+Scannner sc = new Scanner(System.in);
+System.out.print("Enter your name:");
+name =sc.nextLine();
+System.out.print("Enter your ID:");
+id=sc.nextInt();
+System.out.print("Enter your mobile no:");
+mobileno=sc.nextLong();
+System.out.print("Entre your mail id:");
+mail=sc.next();
+System.out.print("Enter your Address:");
+address=sc.next();
+System.out.print("Enter your basic salary:");
+bp=sc.next();
+
+}
+void display(){
+System.out.println("*********************\nCheck your info-
+\nName-"+name+"\nid-"+id+"\nMobile
+no.:"+mobileno+"\nAddress:"+address+"\nMAil 
+id-"+mail+"\n*********************\n");
+
+}
+}
+class Programmer extends Employee{
+double da,hra,,pf,clubfee;
+double GS=0,NS=0;
+void programmer(){
+da=(0.97*bp);
+hra=(0.10*bp);
+pf=(0.12*bp);
+clubfee=(0.001*bp);
+GS=bp+da+hra;
+NS=GS-(pf+clubfee);
+System.out.println("the gross salary is :"+GS+"\nThe net salary is "+NS);
+}
+}
+class Teamlead extends Employee{
+double da,hra,pf,clubfee;
+double GS=0,NS=0;
+void programmer(){
+da=(0.97*bp);
+hra=(0.10*bp);
+pf=(0.12*bp);
+clubfee=(0.001*bp);
+GS=bp+da+hra;
+NS=GS-(pf+clubfee);
+System.out.println("the gross salary is :"+GS+"\nThe net salary is "+NS);
+}
+}
+
+class ASSIPROMANAGER extends Employee{
+double da,hra,pf,clubfee;
+double GS=0,NS=0;
+void programmer(){
+da=(0.97*bp);
+hra=(0.10*bp);
+pf=(0.12*bp);
+clubfee=(0.001*bp);
+GS=bp+da+hra;
+NS=GS-(pf+clubfee);
+System.out.println("the gross salary is :"+GS+"\nThe net salary is "+NS);
+}
+}
+
+class PROGRAMMER extends Employee{
+double da,hra,pf,clubfee;
+double GS=0,NS=0;
+void programmer(){
+da=(0.97*bp);
+hra=(0.10*bp);
+pf=(0.12*bp);
+clubfee=(0.001*bp);
+GS=bp+da+hra;
+NS=GS-(pf+clubfee);
+System.out.println("the gross salary is :"+GS+"\nThe net salary is "+NS);
+}
+}
+
+public class ASSIGNMENT2{
+public static void main (String arg[]){
+int i=1;
+do{Scanner a=new Scanner (System.in);
+System.out.print("--------------\nWelcome......\nCheck your salary by basic pay....\n1)
+programmer\n2)Team Leader\n3)Assignment project manager \n4)project manager \nEnter no:");
+int  choice =a.nextInt();
+switch (choice){
+case 1:
+programmer p1=new programmer();
+p1.info();
+
+p1.display();
+p1.programmer();
+break;
+
+case 2:
+Teamlead p2=new Teamlead();
+p2.info();
+p2.display();
+p2.Teamlead();
+break;
+
+case 3:
+ASSIPROMANAGER P3=new ASSIPROMANAGER();
+P3.info();
+p3.display();
+p3.assipromanager();
+break;
+
+case 4:
+PROMANAGER P4 =new PROMANAGER();
+p4.info();
+p4.display();
+p4.promanager();
+break;
+}
+}
+while(i!=6);
+}
+}
+

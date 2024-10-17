@@ -1,0 +1,91 @@
+import java.util.Scanner;
+class Publication {
+  protected String title;
+  protected double price;
+  protected int copies;
+  public Publication(String title,double price,int copies)
+  {
+    this.title=title;
+    this.price=price;
+    this.copies=copies;
+    }
+  public double salecopy(int numberofcopies)
+  {
+  this.copies=numberofcopies;
+  return numberofcopies*price;
+  }
+  public void display()
+  {
+  System.out.println("Title : "+title);
+  System.out.println("Price : "+price);
+  System.out.println("Copies : "+copies);
+  }
+  }
+ class Book extends Publication
+ {
+   private String author;
+   public Book(String title,double price,int copies,String author)
+   {
+    super(title,price,copies);
+    this.author=author;
+   } 
+ public void ordercopies(int numberofcopies)
+ {
+   this.copies+=numberofcopies;
+   }
+ public void display() 
+ {
+  super.display();
+  System.out.println("Author : "+author);
+  }
+ }
+ class Magazine extends Publication 
+ {
+   private String currentIssue;
+ public Magazine(String title,double price,int copies,String currentIssue)
+ {
+  super(title,price,copies);
+  this.currentIssue=currentIssue;
+  }
+ public void order(int quantity)
+ {
+ this.copies+=quantity;
+ }
+ public void receiveIssue(String newIssue)
+ {
+   this.currentIssue=newIssue;
+   }
+  public void display()
+  {
+   super.display();
+   System.out.println("Current Issue : "+currentIssue);
+   }
+  }
+  
+  public class Publicationtest {
+  public static void main(String args[])
+  {
+  Scanner sc=new Scanner(System.in);
+  System.out.println("Enter the following for Book:\n Title \n Price\n Number of copies\n Author name");
+  Book book1=new Book(sc.nextLine(),sc.nextDouble(),sc.nextInt(),sc.next());
+  System.out.println("Enter the following for Magazine:\n Title \n Price\n Number ofcopies\nAuthorname");
+  Magazine mag1=new Magazine(sc.nextLine(),sc.nextDouble(),sc.nextInt(),sc.next());
+  System.out.println("Enter the number of copies");
+ 
+  Book b1=new Book("Java",49.99,100,"James");
+ Magazine m1=new Magazine("Tech",5.99,500,"August");
+ b1.ordercopies(50);
+ b1.display();
+ 
+ double booksale=b1.salecopy(10);
+ System.out.println("Total Sale from Book :Rs."+booksale);
+ m1.receiveIssue("Sept.2024");
+ m1.display();
+ 
+ double magsale=m1.salecopy(100);
+ System.out.println("Total sale from  Magazine :Rs."+magsale);
+ double totalsales=booksale+magsale;
+ System.out.println("Total from Publication :Rs."+totalsales);
+ }
+ }
+ 

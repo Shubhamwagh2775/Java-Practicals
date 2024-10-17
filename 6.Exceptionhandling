@@ -1,0 +1,87 @@
+import java.util.*;
+class Exception{
+Scanner sc = new Scanner(System.in);
+void Arthexc(){
+//Function to check arithmetic exception
+try{
+int n1, n2;
+int rs = 0;
+System.out.println("ENTER NUM 1: ");
+n1 = sc.nextInt();
+System.out.println("Enter num 2: ");
+n2 = sc.nextInt();
+rs = n1/n2;
+}catch (ArithmeticException e){
+System.out.println(e);
+}
+System.out.println("REST OF THE CODE");
+}
+void ArrIndOutOfB(int[] arr){
+//Function to check array exception
+System.out.println("Standard array is: ");
+for(int i = 0; i<arr.length; i++){
+System.out.print(arr[i]+" ");
+}
+System.out.println();
+try{
+System.out.println("Enter the index number of
+array element which you want to print: ");
+int n1 = sc.nextInt();
+System.out.println(arr[n1]+"is present at given
+index");
+}catch(ArrayIndexOutOfBoundsException e){
+System.out.println(e);
+
+}
+System.out.println("Normal code flow...");
+}
+void NumForm(){
+//function to check number format exception
+try {
+System.out.println("Enter first number: ");
+String s1 = sc.next();
+System.out.println("Enter second number: ");
+String s2 = sc.next();
+int a = Integer.parseInt(s1);
+int b = Integer.parseInt(s2);
+System.out.println("Entered numbers are: " + a
++ " & " + b);
+}catch(NumberFormatException e){
+System.out.println(e);
+}
+System.out.println("Normal flow of code...");
+}
+}
+public class Main1 {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+int ch;
+Exception e = new Exception();
+do{
+System.out.println("Which exception do you want
+to see?\n1.Arithmetic Exception\t\n2.ArrayIndexOutOfBounds
+exception\t\n3.Number Format Exception");
+ch = sc.nextInt();
+switch (ch){
+case 1:
+e.Arthexc();
+System.out.println("===========================");
+break;
+
+case 2:
+int[] array = {1, 2, 3, 4, 5};
+e.ArrIndOutOfB(array);
+System.out.println("===============================");
+break;
+case 3:
+e.NumForm();
+System.out.println("===================================");
+break;
+default:
+System.out.println("Enter valid input
+please!!!!");
+break;
+}
+}while(ch!=4);
+}
+}
